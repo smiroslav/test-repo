@@ -14,13 +14,21 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ms</groupId>
     <artifactId>release-test</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <description>release-test</description>
+
+    <scm>
+        <connection>scm:git:https://github.com/smiroslav/test-repo.git</connection>
+        <developerConnection>scm:git:https://github.com/smiroslav/test-repo.git</developerConnection>
+        <url>https://github.com/smiroslav/test-repo</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <modules>
         <module>core</module>
@@ -56,6 +64,15 @@
                     <preparationGoals>clean install</preparationGoals>
                     <goals>install</goals>
                     <releaseProfiles>release</releaseProfiles>
+                </configuration>
+            </plugin>
+            <!-- Maven scm Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9.5</version>
+                <configuration>
+                    <connectionType>developerConnection</connectionType>
                 </configuration>
             </plugin>
             <!-- Maven Source Plugin -->
@@ -251,7 +268,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -271,7 +288,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                         <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -292,7 +309,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -432,7 +449,9 @@
                                         <goal>install</goal>
                                     </goals>
                                     <configuration>
-                                        <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+                                        <targetURL>
+                                            http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp
+                                        </targetURL>
                                     </configuration>
                                 </execution>
                             </executions>
