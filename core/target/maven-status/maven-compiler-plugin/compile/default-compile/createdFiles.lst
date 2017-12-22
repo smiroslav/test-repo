@@ -1,0 +1,7 @@
+com/ms/core/listeners/SimpleResourceListener.class
+com/ms/core/filters/LoggingFilter.class
+com/ms/core/models/HelloWorldModel.class
+com/ms/core/servlets/SimpleServlet.class
+com/ms/core/package-info.class
+com/ms/core/schedulers/SimpleScheduledTask$Config.class
+com/ms/core/schedulers/SimpleScheduledTask.class
